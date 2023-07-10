@@ -1,5 +1,3 @@
-Certainly! Here's an example of a `README.md` file that provides an overview of the project, including its purpose and features:
-
 ```markdown
 # Terminal CRM Application
 
