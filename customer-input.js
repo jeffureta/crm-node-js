@@ -1,5 +1,6 @@
 const readline = require('readline');
-const fs = require('fs');
+const {saveCustomer} = require('./customer-utils');
+// const fs = require('fs');
 
 // Create a readline interface
 const rl = readline.createInterface({
@@ -35,36 +36,36 @@ function promptUser() {
     );
 
     // Function to save the customer information to a file
-    function saveCustomer(customer) {
-        fs.readFile('customers.json', 'utf8', (err, data) => {
-            if (err) {
-                // If the file doesn't exist, create a new array for customers
-                const customers = [customer];
-                const jsonData = JSON.stringify(customers);
+    // function saveCustomer(customer) {
+    //     fs.readFile('customers.json', 'utf8', (err, data) => {
+    //         if (err) {
+    //             // If the file doesn't exist, create a new array for customers
+    //             const customers = [customer];
+    //             const jsonData = JSON.stringify(customers);
 
-                fs.writeFile('customers.json', jsonData, 'utf8', (err) => {
-                    if (err) {
-                        console.error('Error saving customer information:', err);
-                    } else {
-                        console.log('Customer information saved successfully!');
-                    }
-                });
-            } else {
-                // If the file already exists, parse the JSON data and add the new customer
-                const customers = JSON.parse(data);
-                customers.push(customer);
-                const jsonData = JSON.stringify(customers);
+    //             fs.writeFile('customers.json', jsonData, 'utf8', (err) => {
+    //                 if (err) {
+    //                     console.error('Error saving customer information:', err);
+    //                 } else {
+    //                     console.log('Customer information saved successfully!');
+    //                 }
+    //             });
+    //         } else {
+    //             // If the file already exists, parse the JSON data and add the new customer
+    //             const customers = JSON.parse(data);
+    //             customers.push(customer);
+    //             const jsonData = JSON.stringify(customers);
 
-                fs.writeFile('customers.json', jsonData, 'utf8', (err) => {
-                    if (err) {
-                        console.error('Error saving customer information:', err);
-                    } else {
-                        console.log('Customer information saved successfully!');
-                    }
-                });
-            }
-        });
-    }
+    //             fs.writeFile('customers.json', jsonData, 'utf8', (err) => {
+    //                 if (err) {
+    //                     console.error('Error saving customer information:', err);
+    //                 } else {
+    //                     console.log('Customer information saved successfully!');
+    //                 }
+    //             });
+    //         }
+    //     });
+    // }
 }
 // Start the program
 promptUser();
